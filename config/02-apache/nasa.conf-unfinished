@@ -1,0 +1,27 @@
+input {
+  pipe {
+    command => 'cat data/nasa_19950801.tsv'
+  }
+}
+
+filter {
+  csv {
+    # columns => ['host','logname',	'time',	'method', 'url','response', 'bytes', 'referer', 'useragent']
+    autogenerate_column_names => true
+    separator => '\t'
+  }
+  mutate {
+    remove_field => ['host','command','message']
+  }
+  # Enrichement layer
+  useragent {
+    source => 'agent'
+  }
+  geoip {
+    source => 'clientip'
+  }
+}
+
+output {
+  stdout { codec => rubydebug }
+}
