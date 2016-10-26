@@ -31,8 +31,12 @@ Let's start up elasticsearch and kibana
 1. `$ logstash -f config/01-hello-world/5.conf`
 1. `$ logstash -f config/01-hello-world/6.conf`
 
+Apache Logs
+
 1. `$ logstash -f config/02-apache/1.conf`
 1. `$ logstash -f config/02-apache/2.conf`
+
+Twitter
 
 1. `$ logstash -f config/03-twitter/1.conf`
 1. `$ logstash -f config/03-twitter/2.conf`
